@@ -12,5 +12,6 @@ module.exports = {
     education: "education",
     interns: "interns",
     others: "others",
+    images:"images",
   },
 };

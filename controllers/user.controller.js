@@ -49,7 +49,7 @@
                  response: httpStatus.getStatusText(httpStatus.INTERNAL_SERVER_ERROR)
              })
          }
-     }
+     },
  };
  
  module.exports = UserController;

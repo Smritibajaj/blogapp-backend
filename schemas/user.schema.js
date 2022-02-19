@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 const Blog = require('./blog.schema');
+
+const ImageSchema = new mongoose.Schema({
+  image: Buffer,
+});
 const UserSchema = mongoose.Schema({
   email: {
     type: String,
@@ -14,13 +18,13 @@ const UserSchema = mongoose.Schema({
   userName: {
     type: String,
   },
-}, {
-  timestamps: true,
+  images: [ImageSchema]
 });
 
 UserSchema.set("toJSON", {
   transform: (doc, ret, opt) => {
     delete ret.password;
+    delete ret.images;
     return ret;
   },
 });

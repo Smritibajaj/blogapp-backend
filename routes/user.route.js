@@ -36,4 +36,5 @@ router.route("/update").put(
  */
 router.route("/currentUser").get(UserController.getCurrentUser);
 
+
 module.exports = router;

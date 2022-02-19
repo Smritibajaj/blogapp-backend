@@ -1,4 +1,5 @@
 const app = require('express')();
+const express = require('express');
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const { localStrategy, JwtStrategy } = require("./helper/passport");
@@ -30,6 +31,7 @@ passport.use("login", localStrategy);
 passport.use("jwt", JwtStrategy);
 
 require("./routes/index")(app);
+app.use('/uploads', express.static('uploads'))
 app.use(handleNotFound);
 
 module.exports = app;

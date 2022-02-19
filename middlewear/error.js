@@ -11,6 +11,11 @@ const handleNotFound = (req, res) => {
   });
 };
 
+const handleImageError = (error, req, res, next) => {
+  res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error: error.message })
+}
+
 module.exports = {
   handleNotFound,
+  handleImageError
 };
