@@ -1,12 +1,13 @@
-const app = require('express')();
-const express = require('express');
+const app = require("express")();
+const express = require("express");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const { localStrategy, JwtStrategy } = require("./helper/passport");
 const { handleNotFound } = require("./middlewear/error");
+const cors = require('cors');
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Origin', '*');
   res.header(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
@@ -31,7 +32,7 @@ passport.use("login", localStrategy);
 passport.use("jwt", JwtStrategy);
 
 require("./routes/index")(app);
-app.use('/uploads', express.static('uploads'))
+app.use("/uploads", express.static("uploads"));
 app.use(handleNotFound);
 
 module.exports = app;
