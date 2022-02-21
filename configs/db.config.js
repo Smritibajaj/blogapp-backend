@@ -11,7 +11,7 @@ const getDbUri = () => {
 }
 
 const URI = getDbUri();
-
+console.log(URI)
 mongoose.connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
