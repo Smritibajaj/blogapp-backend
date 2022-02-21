@@ -1,7 +1,13 @@
 const mongoose = require('mongoose'); 
+const { SERVER_PORT, DATABASE, ENV } = require('../configs/app.config');
 //mongodb://localhost:27017/blogapp
+
+//Mongoose Debugging for Dev
+if(ENV === 'DEVELOPMENT') {
+    mongoose.set("debug", true);
+}
 const getDbUri = () => {
-    return `mongodb+srv://simmy:Sim12345@cluster0.dcsyr.mongodb.net/blogapp`;
+    return `mongodb+srv://${DATABASE.MONGO.username}:${DATABASE.MONGO.password}@${DATABASE.MONGO.host}/${DATABASE.MONGO.database}?retryWrites=true&w=majority`;
 }
 
 const URI = getDbUri();
