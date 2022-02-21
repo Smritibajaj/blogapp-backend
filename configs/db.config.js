@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'); 
+//mongodb://localhost:27017/blogapp
 const getDbUri = () => {
-    return `mongodb://localhost:27017/blogapp`;
+    return `mongodb+srv://simmy:Sim12345@cluster0.dcsyr.mongodb.net/blogapp`;
 }
 
 const URI = getDbUri();
